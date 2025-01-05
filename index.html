@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+    <style>
+    .openbtn {
+       font-size: 30px;
+       cursor: pointer;
+       position: fixed;
+       top: 20px;
+       left: 20px;
+       z-index: 1;
+    }
+
+    .overlay {
+       height: 100%;
+       width: 0;
+       position: fixed;
+       z-index: 2;
+       top: 0;
+       left: 0;
+       background-color: rgba(0,0,0,0.888);
+       overflow-x: hidden;
+       transition: 0.5s;
+    }
+
+    .overlay-content {
+       position: relative;
+       top: 25%;
+       width: 100%;
+       text-align: center;
+       margin-top: 30px;
+    }
+
+    .overlay-content a {
+       padding: 8px;
+       text-decoration: none;
+       font-size: 36px;
+       color: #823;
+       display: block;
+       transition: 0.3s;
+    }
+
+       .overlay-content a:hover, .overlay-content a:focus {
+        color: #f1f1f1;
+    }
+
+    .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+        cursor: pointer;
+        color: #fff;
+    }
+     body {
+        font-family: 'Century Gothic';
+        margin: 0;
+        padding: 0;
+        background: #387;
+        color: #f0f0f0;
+        line-height: 1.6;
+    }
+
+
+    .card {
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid #ff7e5f;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px auto;
+        max-width: 300px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    header {
+        background: #111;
+        color: white;
+        padding: 20px 10px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        background: #111;
+        padding: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    nav li {
+        list-style: none;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 18px;
+        padding: 8px 15px;
+        transition: background 0.3s, color 0.3s;
+        border-radius: 5px;
+    }
+
+    nav a:hover {
+        background: #444;
+        color: #ff7e5f;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ff7e5f;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 25px;
+        transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+        background: #feb47b;
+        transform: translateY(-3px);
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #100;
+        color: #fff;
+        font-size: 0.9rem;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+    }
+        #searchInput {
+            width: 80%;
+            padding: 10px;
+            margin: 10px auto;
+            border: 2px solid #444;
+            border-radius: 5px;
+            display: block;
+        }
+        #searchResults {
+            width: 10%;
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #ff7e5f;
+            border-radius: 5px;
+            display: block;
+            margin-top: 2px;
+        }
+        .result {
+            padding: 10px;
+            background-color: #f4f4f4;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .result a {
+            text-decoration: none;
+            color: #444;
+        }
+        .result:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Explore Oceania</h1>
+        <p>Search for a Oceania and jump directly to its section</p>
+        <input type="text" id="searchInput" placeholder="Search Oceania names..." onkeyup="searchItems()">
+        <div id="searchResults"></div>
+    </header>
+    <div id="navOverlay" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+	<a href="#home">Home</a>
+	<a href="#about">Asia</a>
+	<a href="#products">Africa</a>
+	<a href="#location">North America</a>
+	<a href="#timings">South America</a>
+        <a href="file:///C:/Users/Yuval/Desktop/EXTRAS/New%20folder/website%20project/abcde%20-%20Copy.html">Europe</a>
+        <a href="#contact">Ocean</a>
+        <a href="#contact">Oceania</a>
+        <a href="#feedback">Antarctica</a>
+        </div>
+    </div>
+    <span class="openbtn" onclick="openNav()">&#9776; Menu</span>
+    <script src="scripts.js"></script>  
+
+
+    <section id="Australia">
+     <br><br>
+      <div class="card">
+       <image src="https://th.bing.com/th/id/R.8011d3e6b33a95316ffaaab4a0175f57?rik=qOsZjL3Bj1n5DA&riu=http%3a%2f%2fs1.bwallpapers.com%2fwallpapers%2f2014%2f05%2f29%2faustralia-flag_121222469.jpg&ehk=lF7JPgkJfxfdL%2fEtC85k1dvOEaFPGIvqvbS0dl4eQkI%3d&risl=&pid=ImgRaw&r=0" style="Width:300px; height:200px;">   
+         <h2>Australia</h2>
+         <p><b>Prime Minister:</b> Anthony Albanese<br>
+<b>Special:</b> Known for its iconic landmarks like the Sydney Opera House, Great Barrier Reef, and unique wildlife such as kangaroos and koalas.</p>
+       <a href="https://th.bing.com/th/id/OIP.pGp6O0wYM1B7A06B5vxZgQHaGK?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Fiji">
+     <br><br>
+      <div class="card">
+       <image src="https://th.bing.com/th/id/OIP.i5lQXXWd_h1LSAtZRuRxUQHaEK?rs=1&pid=ImgDetMain" style="Width:300px; height:200px;">   
+         <h2>Fiji</h2>
+         <p><b>President:</b> Wiliame Katonivere</b>
+<b>Prime Minister:</b> Sitiveni Rabuka<br>
+<b>Special:</b> Famous for its tropical islands, crystal-clear waters, and vibrant Polynesian culture.</p>
+       <a href="https://th.bing.com/th/id/OIP.7SM_bjXwQe3wf4el-3hf8QHaEs?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Kiribati">
+     <br><br>
+      <div class="card">
+       <image src="https://wallpapers.com/images/hd/kiribati-national-flag-n6nvhojxxf6wuvdx.jpg" style="Width:300px; height:200px;">   
+         <h2>Kiribati</h2>
+         <p><b>President:</b> Taneti Maamau<br>
+<b>Prime Minister:</b> None<br>
+<b>Special:</b> Known for being one of the most remote countries and facing the impacts of rising sea levels.</p>
+       <a href="https://th.bing.com/th/id/R.8e5caf4ed784a18338b290f1e25a8caf?rik=6TQnJheojNCF6w&riu=http%3a%2f%2fwww.worldatlas.com%2fwebimage%2fcountrys%2foceania%2flgcolor%2fkicolor.gif&ehk=3BVPNvDC%2fAK5ygmy5b8XlabXoPmJIeQalmYisfmbNpw%3d&risl=&pid=ImgRaw&r=0" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Marshall Islands">
+     <br><br>
+      <div class="card">
+       <image src="https://i.pinimg.com/originals/8d/19/f7/8d19f793fdb4df1bac4edbdf4cba2500.jpg" style="Width:300px; height:200px;">   
+         <h2>Marshall Islands</h2>
+         <p><b>President:</b> David Kabua<br>
+<b>Prime Minister:</b> None<br>
+<b>Special:</b> Famous for its nuclear testing history and being a low-lying country at risk from climate change.</p>
+       <a href="https://www.worldatlas.com/r/w1200/upload/e3/ec/d6/mh-01.png" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Micronesia">
+     <br><br>
+      <div class="card">
+       <image src="https://th.bing.com/th/id/OIP.SYxKxTIWXmwUZ10Zm1QRQQHaEu?rs=1&pid=ImgDetMain" style="Width:300px; height:200px;">   
+         <h2>Micronesia</h2>
+         <p><b>President:</b> David W. Panuelo<br>
+<b>Prime Minister:</b> None<br>
+<b>Special:</b> Known for its tropical islands, coral reefs, and rich cultural heritage.</p>
+       <a href="https://th.bing.com/th/id/OIP.B9yfeLGaLJrBCD7wfMbepgHaFU?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Nauru">
+     <br><br>
+      <div class="card">
+       <image src="https://img.freepik.com/premium-photo/free-photo-narau-flag-with-fabric-texture_634294-1537.jpg" style="Width:300px; height:200px;">   
+         <h2>Nauru</h2>
+         <p><b>President:</b> Russ Kun<br>
+<b>Prime Minister:</b> None<br>
+<b>Special:</b> The smallest island country in the world, famous for its phosphate mining industry.</p>
+       <a href="https://th.bing.com/th/id/OIP.qJg3xYocZHfr46ECGHy07gHaJD?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="New Zealand">
+     <br><br>
+      <div class="card">
+       <image src="https://th.bing.com/th/id/OIP.PA4tVmkGFjQiahNOr4m9YQHaEK?rs=1&pid=ImgDetMain" style="Width:300px; height:200px;">   
+         <h2>New Zealand</h2>
+         <p><b>Prime Minister:</b> Christopher Hipkins<br>
+<b>Special:</b> Famous for its stunning landscapes, including the Lord of the Rings <b>filming locations, and its indigenous Māori culture.</p>
+       <a href="https://ontheworldmap.com/new-zealand/map-of-new-zealand.jpg" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Palau">
+     <br><br>
+      <div class="card">
+       <image src="https://cdn.tuko.co.ke/images/1120/4c6f49b8fd5dae4a.jpeg?v=1" style="Width:300px; height:200px;">   
+         <h2>Palau</h2>
+         <p><b>President:</b> Surangel Whipps Jr.<br>
+<b>Prime Minister:</b> None<br>
+<b>Special:</b> Known for its pristine beaches, coral reefs, and environmental conservation efforts.</p>
+       <a href="https://th.bing.com/th/id/OIP.5IJVnoYntDPytjzNk0FhoAHaIO?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Papua New Guinea">
+     <br><br>
+      <div class="card">
+       <image src="https://th.bing.com/th/id/OIP.irINcpz7EPRgqx1vUX93ZwHaEK?rs=1&pid=ImgDetMain" style="Width:300px; height:200px;">   
+         <h2>Papua New Guinea</h2>
+         <p><b>Prime Minister:</b> James Marape<br>
+<b>Special:</b> Famous for its diverse cultures, languages, and being home to some of the most biodiverse rainforests.</p>
+       <a href="https://www.ezilon.com/maps/images/oceania/political-map-of-PapGuinea.gif" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Samoa">
+     <br><br>
+      <div class="card">
+       <image src="https://th.bing.com/th/id/OIP.Gcu4we-15mBguoFuOlMtdAAAAA?rs=1&pid=ImgDetMain" style="Width:300px; height:200px;">   
+         <h2>Samoa</h2>
+         <p><b>Prime Minister:</b> Fiame Naomi Mata'afa<br>
+<b>Special:</b> Known for its strong Polynesian culture, traditional villages, and stunning coastal landscapes.</p>
+       <a href="https://th.bing.com/th/id/OIP.DXxZHePw9OilmNH70--iDAHaEa?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Solomon Islands">
+     <br><br>
+      <div class="card">
+       <image src="https://img.freepik.com/premium-photo/national-flag-solomon-islands-realistic-silk-country-national-colours-with-emblem_576092-640.jpg?w=996" style="Width:300px; height:200px;">   
+         <h2>Solomon Islands</h2>
+         <p><b>Prime Minister:</b> Manasseh Sogavare<br>
+<b>Special:</b> Famous for its WWII history, particularly the Battle of Guadalcanal, and its beautiful coral reefs.</p>
+       <a href="https://th.bing.com/th/id/OIP.uPuP7Aoh-w7u3xS5bWYyFQHaEd?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Tonga">
+     <br><br>
+      <div class="card">
+       <image src="https://media.istockphoto.com/photos/tonga-flag-a-series-of-flags-of-the-world-picture-id882457898?k=6&m=882457898&s=612x612&w=0&h=DnV9l2qeGpdX3lDemql0BD53kNCoxWDejd5Zkhdz0mc=" style="Width:300px; height:200px;">   
+         <h2>Tonga</h2>
+         <p><b>King:</b> Tupou VI<br>
+<b>Prime Minister:</b> Hu'akavameiliku<br>
+<b>Special: Known for its royal family, Polynesian traditions, and being one of the last remaining monarchies in the Pacific.</p>
+       <a href="https://www.worldatlas.com/r/w1200/upload/41/13/25/divisions-of-tonga-map.png" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Tuvalu">
+     <br><br>
+      <div class="card">
+       <image src="https://img.freepik.com/premium-photo/tuvalu-country-flag-wavy-silk-fabric-background-panorama-illustration_532963-1159.jpg" style="Width:300px; height:200px;">   
+         <h2>Tuvalu</h2>
+         <p><b>Prime Minister:</b> Kausea Natano<br>
+<b>Special:</b> Famous for its risk of disappearing due to rising sea levels and <b>being one of the smallest and least populated countries in the world.</p>
+       <a href="https://th.bing.com/th/id/OIP.2zoehPMLfkRLEDkWr2b-kQHaEG?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+
+
+    <section id="Vanuatu">
+     <br><br>
+      <div class="card">
+       <image src="https://c8.alamy.com/comp/2KF07X8/official-national-flag-of-vanuatu-2KF07X8.jpg" style="Width:300px; height:200px;">   
+         <h2>Vanuatu</h2>
+         <p><b>President:</b> Nikenike Vurobaravu<br>
+<b>Prime Minister:</b> Ishmael Kalsakau<br>
+<b>Special:</b> Known for its volcanic islands, indigenous cultures, and being a popular diving destination.</p>
+       <a href="https://th.bing.com/th/id/OIP.ees5rc_CkDjsdVOMu4jw6AHaJ8?rs=1&pid=ImgDetMain" class="btn">View Map</a>
+     </div>
+    </section>
+  
+
+    <footer>
+        <p>&copy; 2024-25 YTechArt. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const items = [
+            { name: "Australia", id: "Australia" },
+            { name: "Fiji", id: "Fiji" },
+            { name: "Kiribati", id: "Kiribati" },
+            { name: "Marshall Islands", id: "Marshall Islands" },
+            { name: "Micronesia", id: "Micronesia" },           
+            { name: "Nauru", id: "Nauru" },
+            { name: "New Zealand", id: "New Zealand" },
+            { name: "Palau", id: "Palau" },
+            { name: "Papua New Guinea", id: "Papua New Guinea" },
+            { name: "Samoa", id: "Samoa" },
+            { name: "Solomon Islands", id: "Solomon Islands" },
+            { name: "Tonga", id: "Tonga" },
+            { name: "Tuvalu", id: "Tuvalu" },
+            { name: "Vanuatu", id: "Vanuatu" }
+        ];
+function openNav() {
+    document.getElementById("navOverlay").style.width = "500px";
+}
+
+function closeNav() {
+    document.getElementById("navOverlay").style.width = "0";
+}
+        function searchItems() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filteredItems = items.filter(item => item.name.toLowerCase().includes(query));
+
+            displayResults(filteredItems);
+        }
+
+        function displayResults(results) {
+            const resultContainer = document.getElementById('searchResults');
+            resultContainer.innerHTML = ''; // Clear previous results
+
+            if (results.length === 0) {
+                resultContainer.innerHTML = '<p>No results found</p>';
+            } else {
+                results.forEach(result => {
+                    const div = document.createElement('div');
+                    div.classList.add('result');
+
+                    const link = document.createElement('a');
+                    link.href = `#${result.id}`; // Anchor link to the section ID
+                    link.textContent = result.name; // Link text
+
+                    div.appendChild(link);
+                    resultContainer.appendChild(div);
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
